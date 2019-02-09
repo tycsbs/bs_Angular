@@ -1,0 +1,9 @@
+
+.options-container {
+    max-height: 360px;
+    overflow: hidden;
+}
+.options-container ul {
+    height: 360px;
+    overflow: auto;
+}

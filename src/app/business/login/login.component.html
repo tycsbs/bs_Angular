@@ -1,0 +1,54 @@
+<div class="row clearfix login-wrapper">
+    <h3 class="col-md-offset-3 col-md-6 text-center">User Login</h3>
+    <div class="col-md-offset-3 col-md-8 column">
+        <form class="form-horizontal"
+            [formGroup]="loginFrom">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-6">
+                    <input type="text"
+                        formControlName="email"
+                        class="form-control" />
+                    <div class="text-error"
+                        *ngIf="loginFrom?.get('email')?.hasError('required')">
+                        {{errorMsg.email.required}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-6">
+                    <input type="password"
+                        formControlName="password"
+                        class="form-control" />
+                    <div class="text-error"
+                        *ngIf="loginFrom?.get('password')?.hasError('required')">
+                        {{errorMsg.password.required}}
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="form-group" *ngIf="false">
+                <label class="col-sm-2 control-label">Counter</label>
+                <div class="col-sm-6">
+                    <app-counter formControlName="counter" min="2" max="9"></app-counter>
+                    <div class="text-error"
+                        *ngIf="loginFrom?.get('counter')?.hasError('min')">
+                        {{errorMsg.counter.min}}
+                    </div>
+                    <div class="text-error"
+                        *ngIf="loginFrom?.get('counter')?.hasError('max')">
+                        {{errorMsg.counter.max}}
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button type="button"
+                        [disabled]="!loginFrom?.valid"
+                        (click)="onLogin()"
+                        class="btn btn-success btn-block">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

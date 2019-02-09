@@ -1,0 +1,21 @@
+<div class="search-container">
+  <input type="text"
+    [value]="currentOption?.value"
+    readonly
+    (click)="onToggleClickSearch()"
+    class="form-control">
+  <div class="drop-container" *ngIf="visible">
+    <input type="text"
+      (input)="search$.next($event.target.value)"
+      (click)="onQueryInputClick()"
+      class="form-control">
+    <div class="options-container"
+      *ngIf="(options$ | async)?.length">
+      <ul class="list-group">
+        <li *ngFor="let option of options$ | async"
+          class="list-group-item"
+          (click)="optionSub$.next(option)">{{option.label}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

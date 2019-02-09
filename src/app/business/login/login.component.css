@@ -1,0 +1,9 @@
+.login-wrapper {
+    margin-top: 260px;
+}
+.text-error {
+    padding: 8px 0;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #f50;
+}
